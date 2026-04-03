@@ -1,0 +1,24 @@
+anthropic:
+  model: "claude-sonnet-4-20250514"
+  max_tokens: 1024
+
+overpass:
+  endpoint: "https://overpass-api.de/api/interpreter"
+  timeout: 180
+  cell_size: 0.02
+  delay_between_queries: 5.0
+
+streetview:
+  zoom: 3
+  search_radius: 50
+  concurrency: 5
+  delay_between_batches: 1.0
+
+pipeline:
+  batch_size: 50
+  image_dir: "data/images"
+  db_path: "data/satelite.db"
+
+scoring:
+  min_distress_score: 5
+  min_confidence: 0.6

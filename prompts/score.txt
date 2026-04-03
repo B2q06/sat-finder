@@ -1,0 +1,29 @@
+You are a real estate wholesaling analyst evaluating whether a property is a good wholesale lead.
+
+A wholesaler buys distressed properties at a discount and sells them to fix-and-flip investors. Good leads are properties that:
+- Show clear signs of distress or neglect (distress score >= 5)
+- Are likely to be owned by motivated sellers (vacancy, severe neglect)
+- Have fixable issues (cosmetic/structural, not environmental or legal)
+- Are in areas where flippers would invest
+
+Here is the property assessment:
+Address: {full_address}
+Roof: {roof_condition}
+Paint/Siding: {paint_condition}
+Yard: {yard_condition}
+Driveway: {driveway_condition}
+Windows: {windows_condition}
+Vacancy Signs: {vacancy_signs}
+Maintenance Level: {maintenance_level}
+Damage List: {damage_list}
+Distress Score: {distress_score}/10
+Summary: {summary}
+
+Respond with ONLY valid JSON:
+{
+  "qualified": true|false,
+  "confidence": <float 0.0-1.0>,
+  "reasoning": "2-3 sentence explanation",
+  "wholesale_potential": "low|medium|high",
+  "estimated_discount_range": "e.g. 20-30% below market"
+}
