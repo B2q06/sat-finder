@@ -108,6 +108,18 @@ def run(ctx: click.Context, city: str, limit: int | None) -> None:
 
 
 @cli.command()
+@click.argument("city")
+@click.option("--limit", default=None, type=int, help="Max addresses (default 20)")
+@click.pass_context
+def debug(ctx: click.Context, city: str, limit: int | None) -> None:
+    """Run full pipeline with rich debug TUI showing real-time data flow."""
+    from satelite.stages.debug import run_debug
+
+    cfg = ctx.obj["config"]
+    run_debug(cfg, city, limit=limit)
+
+
+@cli.command()
 @click.option("--city", default=None, help="City to show stats for (all cities if omitted)")
 @click.pass_context
 def status(ctx: click.Context, city: str | None) -> None:
