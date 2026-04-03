@@ -14,8 +14,14 @@ from satelite.models import BBox, SateliteConfig
 _OVERPASS_QUERY = """\
 [out:json][timeout:{timeout}];
 (
-  node["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
-  way["building"]["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
+  way["building"="residential"]["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
+  way["building"="house"]["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
+  way["building"="detached"]["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
+  way["building"="semidetached_house"]["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
+  way["building"="terrace"]["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
+  way["building"="apartments"]["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
+  node["addr:housenumber"]["addr:street"]["building"="residential"]({south},{west},{north},{east});
+  node["addr:housenumber"]["addr:street"]["building"="house"]({south},{west},{north},{east});
 );
 out center body;
 """
