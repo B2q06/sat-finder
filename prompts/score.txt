@@ -20,10 +20,10 @@ Distress Score: {distress_score}/10
 Summary: {summary}
 
 Respond with ONLY valid JSON:
-{
+{{
   "qualified": true|false,
   "confidence": <float 0.0-1.0>,
   "reasoning": "2-3 sentence explanation",
   "wholesale_potential": "low|medium|high",
   "estimated_discount_range": "e.g. 20-30% below market"
-}
+}}
